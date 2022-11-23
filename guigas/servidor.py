@@ -2,7 +2,7 @@ import socket as s
 import threading
 
 HOST = '127.0.0.1'
-PORT = 9999
+PORT = 9090
 
 servidor = s.socket(s.AF_INET, s.SOCK_STREAM)
 servidor.bind((HOST, PORT))
@@ -45,8 +45,8 @@ def receber():
         clientes.append(cliente)
 
         print(f"Nome do cliente: {nome}")
-        broadcast(f"{nome} conectado no servidor!\n".encode('utf-8'))
-        cliente.send("Conectado no servidor".encode('utf-8'))
+        broadcast(f"{nome}conectou no servidor!\n".encode('utf-8'))
+        cliente.send("Conectado no servidor!\n".encode('utf-8'))
 
         thread = threading.Thread(target=handle, args=(cliente,))
         thread.start()
